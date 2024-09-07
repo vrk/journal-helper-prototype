@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/nunito.ttf') format('truetype');
+  font-style: normal;
+  ascent-override: 80%;
+  descent-override: 20%;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/nunito-italic.ttf') format('truetype');
+  font-style: italic;
+}

@@ -1,0 +1,260 @@
+@import url("fonts.css");
+
+html, body, body *{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FBFBEE;
+  font-family: "Nunito";
+  margin: 18px;
+}
+
+main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#main-nav {
+  background-color: white;
+  border: 3px solid #4B624C;
+  padding: 12px;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px;
+  margin-bottom: 0;
+}
+
+#left-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+#tools-nav {
+  padding: 18px 28px;
+  position: absolute;
+  left: 18px;
+  top: 100px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#add-image, #settings, #settings-box, #paper-settings-box {
+  position: absolute;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: "Nunito";
+  font-size: 24px;
+  padding: 18px 28px;
+}
+
+#add-image, #settings-box, #paper-settings-box,
+.chubbybutton {
+  border: 4px solid;
+  border-bottom-width: 8px;
+  border-radius: 18px;
+}
+
+
+#add-image, #settings-box, #paper-settings-box {
+  width: 225px;
+}
+
+#add-image {
+  height: 190px;
+  cursor: pointer;
+  padding-bottom: 8px;
+  background-color: #FFE1E3;
+  border-color: #FFADB2;
+}
+
+#add-image:active {
+  transform: translateY(4px);
+  border-bottom-width: 4px;
+  height: 186px;
+}
+
+#settings-box {
+  background-color: white;
+  border-color: #4B624C;
+  top: 250px;
+}
+
+#paper-settings-box {
+  background-color: white;
+  border-color: #4B624C;
+}
+
+#paper-settings-box h1 {
+  font-size: 32px;
+  color: #4B624C;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+#add-image img {
+  max-width: 100%;
+}
+
+#settings {
+  width: 195px;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: 0;
+}
+
+#settings img {
+  width: 48px;
+}
+
+#fabric-canvas-container {
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+#html-canvas {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+
+}
+
+button.nav-button {
+  background: none;
+  border: none;
+  font-family: 'Nunito';
+  font-size: 24px;
+  display: block;
+  border-radius: 100px;
+  padding: 2px 18px
+}
+
+#settings {
+  bottom: 8px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+button.nav-button:hover:enabled {
+  background-color: #FFF6B2;
+  cursor: pointer;
+}
+
+#settings:hover {
+  transform: translateY(2px);
+
+}
+
+#add-image {
+  top: 36px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+#settings-box, input[type=number], #paper-settings-box {
+  font-size: 24px;
+  font-family: 'Nunito';
+}
+
+input[type=number] {
+  background-color: #FBFBEE;
+  border: 1px solid #D8CDB2;
+  padding: 5px;
+  font-size: 24px;
+}
+
+#paper-settings-box {
+  bottom: 140px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+#paper-settings-box .property-grid {
+  grid-template-columns: 1fr;
+}
+
+#selected-object-preview {
+  display: block;
+  width: 161px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+}
+
+#file-name {
+  font-size: 24px;
+  font-style: italic;
+}
+
+.zoom-button{
+  position: absolute;
+  bottom: 0;
+  right: 18px;
+  width: 100px;
+  height: 90px;
+  background-color: #D6F6FF;
+  border-color: #8CC8D9;
+  border-bottom-width: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40%;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+#zoom-in-button {
+  background-image: url('./../assets/images/zoom-in.svg');
+  bottom: calc( 108px * 2 + 32px)
+}
+
+#zoom-fit-button {
+  background-image: url('./../assets/images/zoom-fit.svg');
+  bottom: calc( 108px * 1 + 32px)
+}
+
+#zoom-out-button {
+  background-image: url('./../assets/images/zoom-out.svg');
+  bottom: calc(32px)
+}
+
+.zoom-button:active {
+  transform: (translateY(8px));
+  height: 82px;
+  border-bottom-width: 4px;
+
+}
+
+[hidden] { display: none !important; }

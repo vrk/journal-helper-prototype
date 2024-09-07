@@ -1,0 +1,55 @@
+name: Build
+on: [push, pull_request]
+
+jobs:
+  build_on_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@master
+        with:
+          node-version: 21
+      - name: install dependencies
+        run: npm install
+      - name: build
+
+        run: npm run make
+
+  build_on_mac:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@master
+        with:
+          node-version: 21
+          architecture: "arm64"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: install dependencies
+        run: npm install
+      - uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+      - name: build
+        env:
+          DEBUG: electron-packager*,*osx-sign*
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_SIGN_ID_NAME: ${{ secrets.APPLE_SIGN_ID_NAME }}
+          APPLE_SIGN_ID: ${{ secrets.APPLE_SIGN_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          TEAM_ID: ${{ secrets.TEAM_ID }}
+        run: npm run make -- --arch=x64,arm64
+
+  build_on_win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@master
+        with:
+          node-version: 21
+      - name: install dependencies
+        run: npm install
+      - name: build
+        run: npm run make

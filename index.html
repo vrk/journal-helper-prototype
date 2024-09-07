@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Printer Pal</title>
+
+  </head>
+  <body>
+    <main>
+      <nav id="main-nav">
+        <div id="left-nav">
+          <button id="new-canvas" class="nav-button">new</button>
+          <button id="save-canvas" class="nav-button" disabled>save</button>
+          <button id="load-canvas" class="nav-button">load</button>
+          <span id="file-name"></span>
+        </div>
+        <div id="right-nav">
+          <button id="download-to-print" class="nav-button">download to print~!</button>
+        </div>
+      </nav>
+      <div id="fabric-canvas-container">
+        <canvas id="html-canvas"></canvas>
+        <button id="add-image">
+          <img src="/src/assets/images/image.png">
+          add image
+        </button>
+        <div id="settings-box" hidden>
+          <div id="object-properties">
+            <img src="" id="selected-object-preview" height="100">
+            <div class="property-grid">
+                <span>width:</span>
+                <input type="number" id="input-object-width" min="0" max="99">
+                <span>height:</span>
+                <input type="number" id="input-object-height" min="0" max="99">
+                <span>x:</span>
+                <input type="number" id="input-object-x" min="-10" max="20">
+                <span>y:</span>
+                <input type="number" id="input-object-y"  min="-15" max="25">
+            </div>
+          </div>
+        </div>
+        <div id="paper-settings-box" hidden>
+          <h1>paper size</h1>
+            <div class="property-grid">
+              <span>width (in):</span>
+              <span><input type="number" id="input-paper-width" min="0.1" max="99"></span>
+              <span>height (in):</span>
+              <span>
+                <input type="number" id="input-paper-height" min="0.1" max="99">
+              </span>
+              <span>pixels per inch:</span>
+              <span>
+                <input type="number" id="input-paper-ppi" min="1" max="1000">
+              </span>
+            </div>
+        </div>
+        <div id="settings">
+          <img src="/src/assets/images/ruler.png">
+          settings
+        </div>
+        <button class="zoom-button chubbybutton" id="zoom-in-button"></button>
+        <button class="zoom-button chubbybutton" id="zoom-fit-button"></button>
+        <button class="zoom-button chubbybutton" id="zoom-out-button"></button>
+    </main>
+    <script type="module" src="/src/renderer.ts" defer></script>
+  </body>
+</html>
